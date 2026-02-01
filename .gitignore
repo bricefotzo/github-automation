@@ -1,6 +1,7 @@
 .env
 __pycache__
-_pycache_
+_pycache_²
 .ipynb_checkpoints
 create_backup.py
 venv
+dist/
