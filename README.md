@@ -17,7 +17,7 @@ git clone https://github.com/bricefotzo/github-automation.git
 ```
 2. Install dependencies with uv
 ``` bash
-uv sunc
+uv sync
 ```
 
 
