@@ -7,25 +7,38 @@ In this repository I'm using python to automate the github taks. As I often use 
  - Git ([Install Git](https://git-scm.com/downloads) if it's not already done)
  - Python 3 ([Install Python](https://www.python.org/downloads/) if it's not already done)
  - Cookiecutter Python Package >= 1.4.0 ([Install Cookiecutter](http://cookiecutter.readthedocs.org/en/latest/installation.html) if it's not already done)  
+ - [NEW] - [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+## Setup your environment
+
+1. Get the code
+``` bash
+git clone https://github.com/bricefotzo/github-automation.git
+```
+2. Install dependencies with uv
+``` bash
+uv sunc
+```
+
 
 ## Automate add, commit and push 
-> We'll use the file [add-commit-push.py](https://github.com/BriceFotzo/github_automation/blob/master/add-commit-push.py). <br>
+> We'll use the file [add-commit-push.py](https://github.com/BriceFotzo/github-automation/blob/master/add-commit-push.py). <br>
 
 As those 3 commands can be used frequently (daily,hourly or after finishing some tasks), I made a little trick to reduce them to one line. 
 I just have to run the following command:
 ``` bash
-$ py add-commit-push.py --commit 'Type your commit message'
+uv run add-commit-push.py --commit 'Type your commit message'
 ```
 ## Automate the deletion 
-> We'll use the file [delete_repos.py](https://github.com/BriceFotzo/github_automation/blob/master/delete_repos.py). <br>
+> We'll use the file [delete_repos.py](https://github.com/BriceFotzo/github-automation/blob/master/delete_repos.py). <br>
 
 I often want to delete repositories(often many at once), so I wrapped the process in the delete_repos.py. Find more details in this [medium article](https://bricefotzo.medium.com/how-to-delete-many-git-repositories-at-once-fe4e9ed61751).
 To delete repositories, you just have to run this:
 ``` bash
-$ py delete_repos.py
+uv run delete_repos.py
 ```
 ## Automate the creation
-> We'lle use the file [create_repo.py](https://github.com/BriceFotzo/github_automation/blob/master/create_repo.py) and some functions in [utils.py](https://github.com/BriceFotzo/github_automation/blob/master/utils.py).
+> We'lle use the file [create_repo.py](https://github.com/BriceFotzo/github-automation/blob/master/create_repo.py) and some functions in [utils.py](https://github.com/BriceFotzo/github-automation/blob/master/utils.py).
 <br>
 
 When starting a new project, it's important to have a clean and user friendly structure to share it with colleagues. As I work in data science, I use the [cookiecutter data science structure](https://drivendata.github.io/cookiecutter-data-science/). It's _a logical, reasonably standardized, but flexible project structure for doing and sharing data science work._ accoding to the contributors.
@@ -36,16 +49,16 @@ When starting a new project, it's important to have a clean and user friendly st
 
 **Step 1** - Create a workspace for your projects
 ``` bash
-$ mkdir my-data-science-projects
+mkdir my-data-science-projects
 ```
 **Step 2** - Clone this repository and set the environment
 ``` bash
-$ git clone https://github.com/BriceFotzo/github_automation
+git clone https://github.com/BriceFotzo/github-automation
 ```
 **Step 3** - Navigate to the repository and create a .env file to set environment variables
 ``` bash
-$ cd github_automation
-$ touch .env
+cd github-automation
+touch .env
 ```
 **Step 4** - In the .env file, set those variables:
 
@@ -59,11 +72,11 @@ $ touch .env
 Every time you'll start a new project, follow those steps:
 Navigate first to your **data science projects** folder.
 ``` bash
-$ cd my-data-science-projects
+cd my-data-science-projects
 ```
 Then run the following command to setup a new project with (project name, project repository name, your name, a license and a python version)
 ``` bash
-$ py create_repo.py
+uv run create_repo.py
 ```
 Follow the instructions to setup your repostiory. Both local and online repositories will be created.
 You can then start developping.

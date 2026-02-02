@@ -24,6 +24,7 @@ if __name__=="__main__":
     #split the input to create a list of repo to delete
     repo_to_del=to_del.split(',')
     #loop over the list of repo to delete
+   
     for i in repo_to_del:
         #set the api link for deleting repo
         url = GITHUB_API+"/repos/"+GITHUB_USER+"/"+repos_dict[int(i)]

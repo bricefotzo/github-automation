@@ -4,4 +4,5 @@ _pycache_²
 .ipynb_checkpoints
 create_backup.py
 venv
+.venv
 dist/
